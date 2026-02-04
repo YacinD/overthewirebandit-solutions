@@ -42,53 +42,28 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
 ---
 
-🗂️ Level Breakdown
-Level 0 → 1
+# Bandit Wargame — Level Guide
 
-Task: Read a file named readme
-Concept: Basic file output
+This document summarizes each Bandit level with **Task** and **Solution** for quick reference.
+
 ---
-Level 1 → 2
 
-Task: Read a file named -
-Concept: Handling special characters in filenames
+## Levels Overview
+
+| Level | Task | Solution |
+|-------|------|---------|
+| 0 → 1 | Read the password from the `readme` file | `cat readme` |
+| 1 → 2 | Read the file named `-` | `cat ./-` |
+| 2 → 3 | Read the file with spaces: `spaces in this filename` | `cat "spaces in this filename"` or `cat spaces\ in\ this\ filename` |
+| 3 → 4 | Find the password in a hidden file inside `inhere` | `ls -a inhere` then `cat inhere/.hidden_file` |
+| 4 → 5 | Find the only human-readable file in `inhere` | `file inhere/*` → `cat <readable_file>` |
+| 5 → 6 | Find a file under `inhere` that is human-readable, 1033 bytes, not executable | `find inhere -type f -size 1033c ! -executable` |
+| 6 → 7 | Find the password owned by `bandit7`, group `bandit6`, size 33 bytes | `find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null` |
+| 7 → 8 | Find the password next to the word `millionth` in `data.txt` | `grep "millionth" data.txt` (second word on the line) |
+| 8 → 9 | Find the line in `data.txt` that occurs only once | `sort data.txt | uniq -u` |
+| 9 → 10 | Find the human-readable password preceded by `=` in `data.txt` | `strings data.txt | grep "===="` |
+
 ---
-Level 2 → 3
 
-Task: Access a file with spaces in its name
-Concept: Quoting and escaping filenames
----
-Level 3 → 4
-
-Task: Locate a hidden file
-Concept: Hidden files and directory listing
-
-Level 4 → 5
-
-Task: Identify a human-readable file
-Concept: File type detection
-
-Level 5 → 6
-
-Task: Find a file by size and permissions
-Concept: Advanced file searching
-
-Level 6 → 7
-
-Task: Search system-wide by ownership and size
-Concept: Ownership & error redirection
-
-Level 7 → 8
-
-Task: Extract a specific line from a file
-Concept: Pattern matching
-
-Level 8 → 9
-
-Task: Identify a unique line
-Concept: Sorting and uniqueness
-
-Level 9 → 10
-
-Task: Find readable strings in binary data
-Concept: Data extraction and filtering
+**Tip:**  
+You can use this table as a **quick cheat sheet** or expand it with **notes per level** inside VS Code.
