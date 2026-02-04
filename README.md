@@ -39,24 +39,25 @@ This repo acts as a reference and revision resource as I move through the levels
 
 ```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220
-___
+```
+---
 
 🗂️ Level Breakdown
 Level 0 → 1
 
 Task: Read a file named readme
 Concept: Basic file output
-
+---
 Level 1 → 2
 
 Task: Read a file named -
 Concept: Handling special characters in filenames
-
+---
 Level 2 → 3
 
 Task: Access a file with spaces in its name
 Concept: Quoting and escaping filenames
-
+---
 Level 3 → 4
 
 Task: Locate a hidden file
