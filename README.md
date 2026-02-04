@@ -1,5 +1,4 @@
-<span style="color:red">Overthewirebandit Solutions</span>
-
+## Overthewirebandit Solutions
 
 A personal learning log documenting my progress through the **Bandit** wargame by OverTheWire.  
 This repository focuses on *how* each problem was approached rather than just the final answer.
